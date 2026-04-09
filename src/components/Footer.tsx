@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom'
-import { Mail, Phone, MapPin, Twitter, Linkedin, Github } from 'lucide-react'
+import { Mail, Phone, MapPin, MessageCircle, Linkedin, Github, Instagram } from 'lucide-react'
+
+const SOCIAL_LINKS = [
+  { icon: MessageCircle, link: 'https://wa.me/918722334335' },
+  { icon: Instagram,   link: 'https://www.instagram.com/one_step_jobs?igsh=bXEzaWU4ZGF0NTEz' },
+]
+
 
 export default function Footer() {
   return (
@@ -18,14 +24,19 @@ export default function Footer() {
               Bridging talented students with leading employers across India.
               One Step to Your Career — starts right here.
             </p>
-            <div className="flex gap-3 mt-5">
-              {[Twitter, Linkedin, Github].map((Icon, i) => (
-                <a key={i} href="#"
-                  className="w-9 h-9 bg-slate-800 hover:bg-brand-600 rounded-lg flex items-center justify-center transition-colors group">
-                  <Icon className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" />
-                </a>
-              ))}
-            </div>
+           <div className="flex gap-3 mt-5">
+          {SOCIAL_LINKS.map(({ icon: Icon, link }, i) => (
+            <a
+              key={i}
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 bg-slate-800 hover:bg-brand-600 rounded-lg flex items-center justify-center transition-colors group"
+            >
+              <Icon className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" />
+            </a>
+          ))}
+        </div>
           </div>
 
           {/* Links */}
@@ -54,7 +65,7 @@ export default function Footer() {
               {[
                 { Icon: Mail,   text: 'onestepjobs2@gmail.com' },
                 { Icon: Phone,  text: '+91 87 22 334 335' },
-                { Icon: MapPin, text: 'Hyderabad, Telangana, India' },
+                { Icon: MapPin, text: 'Ongole, Prakasam district , Andhra Pradesh' },
               ].map(({ Icon, text }) => (
                 <li key={text} className="flex items-start gap-2.5 text-slate-400 text-sm">
                   <Icon className="w-4 h-4 mt-0.5 text-orange-400 shrink-0" />

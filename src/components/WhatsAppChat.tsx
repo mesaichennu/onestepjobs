@@ -5,7 +5,7 @@ import { FaWhatsapp } from "react-icons/fa"; // ✅ WhatsApp icon
 export default function WhatsAppChat() {
   const [open, setOpen] = useState(false);
 
-  const phoneNumber = "919876543210"; // replace
+  const phoneNumber = "918722334335"; // replace
   const message = "Hi, I am interested in job opportunities";
 
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
