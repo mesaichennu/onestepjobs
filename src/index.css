@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    @apply bg-slate-950 text-slate-100 antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', Georgia, serif; }
+}
+
+@layer components {
+  /* ── Primary (brand blue) ── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3
+           bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-xl
+           transition-all duration-200 shadow-lg shadow-brand-600/25
+           hover:shadow-brand-500/40 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  /* ── Secondary (ghost) ── */
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3
+           border border-slate-600 hover:border-brand-400
+           text-slate-200 hover:text-brand-400 font-semibold rounded-xl
+           transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  /* ── CTA orange (matches logo accent) ── */
+  .btn-gold {
+    @apply inline-flex items-center gap-2 px-6 py-3
+           bg-orange-500 hover:bg-orange-400 text-white font-bold rounded-xl
+           transition-all duration-200 shadow-lg shadow-orange-500/30
+           hover:shadow-orange-400/40 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .card {
+    @apply bg-slate-900 border border-slate-800 rounded-2xl p-6 transition-all duration-300;
+  }
+  .card-hover {
+    @apply card hover:border-brand-500/50 hover:shadow-xl hover:shadow-brand-500/10 hover:-translate-y-1;
+  }
+
+  .input-field {
+    @apply w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3
+           text-slate-100 placeholder-slate-500
+           focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20
+           transition-all duration-200 font-body text-sm;
+  }
+
+  .label { @apply block text-sm font-medium text-slate-300 mb-1.5; }
+
+  .section-heading { @apply font-display text-4xl md:text-5xl font-bold text-white; }
+  .section-sub     { @apply text-slate-400 text-lg leading-relaxed; }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full;
+  }
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.opacity-0-start { opacity: 0; }
