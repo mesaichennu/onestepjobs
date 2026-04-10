@@ -6,7 +6,6 @@ import AboutPage from '../pages/AboutPage'
 import ServicesPage from '../pages/ServicesPage'
 import AdminPage from '../pages/AdminPage'
 
-
 export default function AppRoutes() {
   return (
     <Routes>
