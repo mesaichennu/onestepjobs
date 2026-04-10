@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
-import { Mail, Phone, MapPin, MessageCircle, Linkedin, Github, Instagram } from 'lucide-react'
+import { Mail, Phone, MapPin, MessageCircle, Youtube , Instagram } from 'lucide-react'
 
 const SOCIAL_LINKS = [
   { icon: MessageCircle, link: 'https://wa.me/918722334335' },
+  { icon: Youtube,       link: 'https://youtube.com/@onestepjob?si=p4oGpDBT5Nzt6T6O' },
   { icon: Instagram,   link: 'https://www.instagram.com/one_step_jobs?igsh=bXEzaWU4ZGF0NTEz' },
 ]
 

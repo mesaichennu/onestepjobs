@@ -5,15 +5,15 @@ import { Briefcase, Building2, Layers } from "lucide-react";
 
 const MILESTONES = [
   {
-    year: "2009",
-    title: "Founded in Hyderabad",
+    year: "2020",
+    title: "Founded in Ongole",
     desc: "Started with a team of 5 and a vision to change how India hires.",
     align: "left",
     image: "/images/3.png",
     imageAlt: "Person pointing to a startup milestone board",
   },
   {
-    year: "2013",
+    year: "2022",
     title: "Expanded to 5 States",
     desc: "Reached 10,000 placements and opened offices in Mumbai, Bengaluru, Chennai, and Delhi.",
     align: "right",
@@ -21,7 +21,7 @@ const MILESTONES = [
     imageAlt: "Person pointing upward with success gesture",
   },
   {
-    year: "2017",
+    year: "2023",
     title: "Digital Transformation",
     desc: "Launched our online platform, making registration accessible from any corner of India.",
     align: "left",
@@ -29,7 +29,7 @@ const MILESTONES = [
     imageAlt: "Person holding a laptop and pointing",
   },
   {
-    year: "2021",
+    year: "2025",
     title: "Pan-India Presence",
     desc: "Achieved 10,000+ active corporate partnerships and served students from all 28 states.",
     align: "right",
@@ -37,7 +37,7 @@ const MILESTONES = [
     imageAlt: "Person pointing at a digital growth chart",
   },
   {
-    year: "2024",
+    year: "2026",
     title: "12,000+ Placements",
     desc: "Crossed a major milestone and introduced AI-powered skill matching for faster placements.",
     align: "left",
@@ -178,13 +178,18 @@ export default function AboutPage() {
         </div>
       </section>
 
-     <section className="relative py-24 overflow-hidden">
-      {/* subtle background */}
+
+
+    <section className="relative py-24 overflow-hidden">
+
+      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900" />
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-600/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
         <div className="text-center mb-16">
           <p className="text-brand-400 font-medium text-sm uppercase tracking-widest mb-3">
             Milestones
@@ -193,84 +198,107 @@ export default function AboutPage() {
         </div>
 
         <div className="relative">
-          {/* Vertical line */}
+
+          {/* Desktop vertical line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-500/50 via-brand-500/20 to-transparent hidden md:block" />
 
-          <div className="space-y-14">
+          {/* Mobile vertical line */}
+          <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-brand-500/40 via-brand-500/20 to-transparent md:hidden" />
+
+          <div className="space-y-12 md:space-y-14">
+
             {MILESTONES.map(({ year, title, desc, align, image, imageAlt }) => {
               const isLeft = align === "left";
 
               return (
                 <div
                   key={year}
-                  className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-6 md:gap-8"
+                  className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-8 items-start"
                 >
-                  {/* Left side / image side */}
-                  <div className={`${isLeft ? "md:order-3" : "md:order-1"}`}>
+
+                  {/* ================= MOBILE ================= */}
+                  <div className="flex md:hidden gap-4">
+
+                    {/* Dot */}
+                    <div className="flex flex-col items-center">
+                      <div className="w-8 h-8 bg-brand-600 border-4 border-slate-950 rounded-full flex items-center justify-center z-10">
+                        <span className="w-2 h-2 bg-white rounded-full" />
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1">
+
+                      {/* Image */}
+                      <motion.img
+                        src={image}
+                        alt={imageAlt}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: false, amount: 0.5 }}
+                        transition={{ duration: 0.5 }}
+                        className="w-28 mb-3 object-contain drop-shadow-xl"
+                      />
+
+                      {/* Card */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.85 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: false, amount: 0.6 }}
+                        transition={{ duration: 0.5 }}
+                        className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-4 will-change-transform"
+                      >
+                        <span className="text-brand-400 text-xs mb-2 block">{year}</span>
+                        <h3 className="text-white font-semibold text-base mb-1">{title}</h3>
+                        <p className="text-slate-400 text-sm">{desc}</p>
+                      </motion.div>
+
+                    </div>
+                  </div>
+
+                  {/* ================= DESKTOP IMAGE ================= */}
+                  <div className={`${isLeft ? "md:order-3" : "md:order-1"} hidden md:block`}>
                     <motion.div
-                      initial={{ opacity: 0, x: isLeft ? 30 : -30, scale: 0.95 }}
+                      initial={{ opacity: 0, x: isLeft ? 40 : -40, scale: 0.9 }}
                       whileInView={{ opacity: 1, x: 0, scale: 1 }}
-                      viewport={{ once: true, amount: 0.35 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                      className={`hidden md:flex ${
-                        isLeft ? "justify-start" : "justify-end"
-                      } items-center`}
+                      viewport={{ once: false, amount: 0.5 }}
+                      transition={{ duration: 0.6 }}
+                      className={`flex ${isLeft ? "justify-start" : "justify-end"}`}
                     >
                       <img
                         src={image}
                         alt={imageAlt}
-                        className="w-44 lg:w-56 h-auto object-contain drop-shadow-2xl"
+                        className="w-44 lg:w-56 object-contain drop-shadow-2xl"
                       />
                     </motion.div>
                   </div>
 
-                  {/* Center dot */}
-                  <div className="md:order-2 flex md:flex-col items-center justify-center">
-                    <div className="hidden md:block w-px h-20 bg-gradient-to-b from-transparent via-brand-500/40 to-transparent" />
-                    <div className="w-10 h-10 bg-brand-600 border-4 border-slate-950 rounded-full flex items-center justify-center shrink-0 z-10 shadow-lg shadow-brand-500/20">
+                  {/* ================= DESKTOP DOT ================= */}
+                  <div className="hidden md:flex md:order-2 flex-col items-center">
+                    <div className="w-10 h-10 bg-brand-600 border-4 border-slate-950 rounded-full flex items-center justify-center shadow-lg shadow-brand-500/20">
                       <span className="w-2 h-2 bg-white rounded-full" />
                     </div>
-                    <div className="hidden md:block w-px h-20 bg-gradient-to-b from-brand-500/40 via-brand-500/20 to-transparent" />
                   </div>
 
-                  {/* Card side */}
-                  <div className={`${isLeft ? "md:order-1" : "md:order-3"}`}>
-                    {/* mobile image */}
+                  {/* ================= DESKTOP CARD ================= */}
+                  <div className={`${isLeft ? "md:order-1" : "md:order-3"} hidden md:block`}>
                     <motion.div
-                      initial={{ opacity: 0, y: 20, scale: 0.96 }}
-                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                      viewport={{ once: true, amount: 0.35 }}
-                      transition={{ duration: 0.5, ease: "easeOut" }}
-                      className="md:hidden mb-4 flex justify-center"
+                      initial={{ opacity: 0, scale: 0.85 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: false, amount: 0.6 }}
+                      transition={{ duration: 0.5 }}
+                      className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-brand-500/30 transition will-change-transform"
                     >
-                      <img
-                        src={image}
-                        alt={imageAlt}
-                        className="w-32 h-auto object-contain drop-shadow-2xl"
-                      />
-                    </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.35 }}
-                      transition={{ duration: 0.5, ease: "easeOut" }}
-                      className={`card-hover backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-brand-500/30 transition ${
-                        isLeft ? "md:pr-12 md:text-left" : "md:pl-12 md:text-left"
-                      }`}
-                    >
-                      <span className="badge bg-brand-500/15 text-brand-300 font-mono text-xs mb-3 inline-block">
-                        {year}
-                      </span>
-                      <h3 className="font-display font-semibold text-white text-lg mb-1">
-                        {title}
-                      </h3>
-                      <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
+                      <span className="text-brand-400 text-xs mb-2 block">{year}</span>
+                      <h3 className="text-white font-semibold text-lg mb-1">{title}</h3>
+                      <p className="text-slate-400 text-sm">{desc}</p>
                     </motion.div>
                   </div>
+
                 </div>
               );
             })}
+
           </div>
         </div>
       </div>
@@ -302,8 +330,15 @@ export default function AboutPage() {
 
   {/* Background glow */}
   <div className="absolute inset-0">
-    <div className="absolute top-0 right-0 w-96 h-96 bg-brand-600/10 blur-3xl rounded-full" />
-    <div className="absolute bottom-0 left-0 w-72 h-72 bg-orange-500/10 blur-3xl rounded-full" />
+<img
+  src="/bg5.png"
+  alt="Team Background"
+  className="w-full h-full object-cover opacity-20"
+/>
+<div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl" />
+</div>
+
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   </div>
 
   <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
