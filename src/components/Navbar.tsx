@@ -28,17 +28,17 @@ export default function Navbar() {
         ? 'bg-slate-950/92 backdrop-blur-md border-b border-slate-800/70 shadow-xl shadow-slate-950/60'
         : 'bg-transparent'
     }`}>
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
 
           {/* ── Logo ── */}
           <Link to="/" className="flex items-center group">
             {/* White pill so the logo pops on dark bg without its own bg */}
-            <div className=" rounded-xl px-3 py-1.5 shadow-md group-hover:shadow-orange-500/2 transition-shadow">
+            <div className=" rounded-xl  py-1.5 shadow-md group-hover:shadow-orange-500/2 transition-shadow">
               <img
                 src="/logo.jpeg"
                 alt="OneStep Jobs"
-                className="h-28 w-38 object-contain mt-3"
+                className="h-28 w-38 object-contain mt-3 "
                 style={{ mixBlendMode: 'multiply' }}
               />
             </div>
@@ -85,7 +85,7 @@ export default function Navbar() {
 
         {/* ── Mobile menu ── */}
         {open && (
-          <div className="md:hidden border-t border-slate-800 py-3 pb-4 space-y-1 animate-fade-in">
+          <div className="md:hidden border-t border-slate-300 py-3 pb-4 space-y-1 bg-transparent backdrop-blur-md mt-2 rounded-lg shadow-lg shadow-slate-950/60 animate-fade-up">
             {NAV_LINKS.map(link => (
               <Link
                 key={link.to}

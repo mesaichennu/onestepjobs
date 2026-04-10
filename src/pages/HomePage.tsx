@@ -145,7 +145,7 @@ export default function HomePage() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ismobile:flex ismobile:items-center ismobile:gap-12 py-20">
         <div className="max-w-xl">
 
           {/* Tag */}
