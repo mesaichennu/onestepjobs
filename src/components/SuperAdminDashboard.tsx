@@ -124,11 +124,9 @@ function CompanyForm({ initial, onSave, onCancel, saving }: {
             placeholder="Acme Corp" className={`input-field ${errors.company_name ? 'border-red-500/60' : ''}`} />
         </Field>
         <Field label="Industry *" name="industry" error={errors.industry}>
-          <select id="industry" name="industry" value={form.industry} onChange={ch}
-            className={`input-field bg-slate-800 ${errors.industry ? 'border-red-500/60' : ''}`}>
-            <option value="">Select industry</option>
-            {INDUSTRIES.map(i => <option key={i} value={i}>{i}</option>)}
-          </select>
+          <input list="industry-list" id="industry" name="industry" value={form.industry} onChange={ch}
+            placeholder="Select industry" className={`input-field ${errors.industry ? 'border-red-500/60' : ''}`} />
+
         </Field>
         <Field label="Contact Person *" name="contact_person" error={errors.contact_person}>
           <input id="contact_person" name="contact_person" value={form.contact_person} onChange={ch}
@@ -241,11 +239,9 @@ function StaffForm({ initial, onSave, onCancel, saving }: {
           </select>
         </Field>
         <Field label="Department *" name="department" error={errors.department}>
-          <select id="department" name="department" value={form.department} onChange={ch}
-            className={`input-field bg-slate-800 ${errors.department ? 'border-red-500/60' : ''}`}>
-            <option value="">Select department</option>
-            {DEPARTMENTS.map(d => <option key={d} value={d}>{d}</option>)}
-          </select>
+          <input list="department-list" id="department" name="department" value={form.department} onChange={ch}
+            placeholder="Select department" className={`input-field ${errors.department ? 'border-red-500/60' : ''}`} />
+
         </Field>
         <Field label="Qualification *" name="qualification" error={errors.qualification}>
           <select id="qualification" name="qualification" value={form.qualification} onChange={ch}
