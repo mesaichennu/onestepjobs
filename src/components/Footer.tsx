@@ -65,7 +65,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { Icon: Mail,   text: 'onestepjobs2@gmail.com' },
-                { Icon: Phone,  text: '+91 87 22 334 335' },
+                // { Icon: Phone,  text: '+91 87 22 334 335' },
                 { Icon: MapPin, text: 'Ongole, Prakasam district , Andhra Pradesh' },
               ].map(({ Icon, text }) => (
                 <li key={text} className="flex items-start gap-2.5 text-slate-400 text-sm">
