@@ -29,7 +29,7 @@ export default function Navbar() {
         : 'bg-transparent'
     }`}>
       <nav className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
 
           {/* ── Logo ── */}
           <Link to="/" className="flex items-center group">
@@ -38,7 +38,7 @@ export default function Navbar() {
               <img
                 src="/logo.jpeg"
                 alt="OneStep Jobs"
-                className="h-28 w-38 object-contain mt-3 "
+                className="h-20 w-auto object-contain  "
                 style={{ mixBlendMode: 'multiply' }}
               />
             </div>
