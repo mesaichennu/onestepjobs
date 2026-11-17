@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState, type FormEvent } from 'react
 import { supabase } from '../../services/supabase'
 import { fetchStaff, updateStaff, type Staff } from '../../services/supabase'
 import { Plus, Search, Pencil, Trash2, Eye, Upload, Download, FileText, Image as ImageIcon, Loader2, X, AlertCircle, RefreshCw } from 'lucide-react'
+import { div } from 'framer-motion/client'
 
 type Module = 'employees'|'projects'|'documents'
 type Client = {id:string;client_name:string;company_name:string}
