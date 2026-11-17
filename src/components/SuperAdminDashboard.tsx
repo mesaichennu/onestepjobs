@@ -14,6 +14,8 @@ import {
 import StudentDashboard from './StudentDashboard'
 import CompanyDashboard from './CompanyDashboard'
 import StaffDashboard   from './StaffDashboard'
+import ERPPortal from './erp/ERPPortal'
+import { Briefcase } from 'lucide-react'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // CONSTANTS
@@ -50,7 +52,7 @@ const BLANK_STAFF: StaffInsert = {
   qualification: '', experience: '', joining_date: '',
 }
 
-type Tab = 'overview' | 'students' | 'companies' | 'staff'
+type Tab = 'overview' | 'students' | 'companies' | 'staff' | 'erp'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // SHARED FIELD WRAPPER  (module-level — avoids focus-loss bug)
@@ -567,6 +569,7 @@ const TABS: { id: Tab; label: string; icon: React.ElementType; color: string; ac
   { id: 'students',   label: 'Students',    icon: Users,           color: 'text-brand-400',   accent: 'bg-brand-600' },
   { id: 'companies',  label: 'Companies',   icon: Building2,       color: 'text-orange-400',  accent: 'bg-orange-500' },
   { id: 'staff',      label: 'Staff',       icon: UserCog,         color: 'text-emerald-400', accent: 'bg-emerald-600' },
+  { id: 'erp',        label: 'ERP Portal',  icon: Briefcase, color: 'text-purple-400', accent: 'bg-purple-600' },
 ]
 
 export default function SuperAdminDashboard() {
@@ -614,6 +617,7 @@ export default function SuperAdminDashboard() {
             {activeTab === 'students'  && 'View, filter, and manage all student registrations'}
             {activeTab === 'companies' && 'Add and manage company registrations'}
             {activeTab === 'staff'     && 'Add and manage staff members'}
+            {activeTab === 'erp'       && 'Business management, operations and finance'}
           </p>
         </div>
       </div>
@@ -623,6 +627,7 @@ export default function SuperAdminDashboard() {
       {activeTab === 'students'  && <StudentDashboard />}
       {activeTab === 'companies' && <CompaniesWithForms />}
       {activeTab === 'staff'     && <StaffWithForms />}
+      {activeTab === 'erp'       && <ERPPortal />}
     </div>
   )
 }
