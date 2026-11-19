@@ -1,3 +1,4 @@
+//erpservice.ts
 import { supabase } from './supabase'
 export type ERPClient={id:string;client_name:string;company_name:string;contact_person:string;phone:string;email:string;gst_number:string;address:string;status:'Active'|'Inactive';created_at:string;updated_at:string}
 export type ERPClientInput=Omit<ERPClient,'id'|'created_at'|'updated_at'>
